@@ -7,6 +7,28 @@
 //     playgroundSection.classList.remove('hidden');
 // }
 
+function handlekeyboardButtonPress(event){
+    const playerPressed = event.key;
+    console.log('player pressed',playerPressed);
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+    console.log(playerPressed,expectedAlphabet);
+
+    if(playerPressed === expectedAlphabet){
+        console.log('You get a point')
+        removeBackgroundColorById(expectedAlphabet);
+        continueGame();
+    }
+else{
+    console.log('you missed')
+}
+
+}
+
+document.addEventListener('keyup',handlekeyboardButtonPress)
+
+
 function continueGame() {
     // step:1 generate a random alphabet
     const alphabet = getARandomAlphabet();
@@ -18,7 +40,7 @@ function continueGame() {
 
 }
 
-
+ 
 function play() {
     hideElementById('home-screen');
     showElementById('Playground');
