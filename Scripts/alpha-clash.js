@@ -11,14 +11,15 @@ function continueGame() {
     // step:1 generate a random alphabet
     const alphabet = getARandomAlphabet();
     const currentAlphabetElement = document.getElementById('current-alphabet');
-    currentAlphabetElement.innertext = alphabet;
+    currentAlphabetElement.innerText = alphabet;
+    setBackgroundColorById(alphabet);
+
 
 
 }
 
 
-function play() 
-{
+function play() {
     hideElementById('home-screen');
     showElementById('Playground');
     continueGame();
