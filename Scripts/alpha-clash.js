@@ -10,6 +10,9 @@
 function handlekeyboardButtonPress(event) {
     const playerPressed = event.key;
     console.log('player pressed', playerPressed);
+    if(playerPressed === 'Escape'){
+        gameOver();
+    }
     const currentAlphabetElement = document.getElementById('current-alphabet');
     const currentAlphabet = currentAlphabetElement.innerText;
     const expectedAlphabet = currentAlphabet.toLowerCase();
@@ -72,12 +75,21 @@ function play() {
     hideElementById('final-score');
     showElementById('Playground');
 
-    setBackgroundColorById('current-life',5);
-    setBackgroundColorById('current-score',0);
+    
+
+    setAnewValueById('current-life',5);
+    setAnewValueById('current-score',0);
+    
+
     continueGame();
 }
 
 function gameOver(){
     hideElementById('Playground');
     showElementById('final-score');
+    const finalScore = getTextElementByID('current-score')
+    setAnewValueById('game-score',finalScore)
+    const removeTextRepeat = getElementTextById('current-alphabet');
+    removeBackgroundColorById(removeTextRepeat);
+
 }
